@@ -1,81 +1,135 @@
-# Streamlit App Tutorial
+# Step-by-Step Guide to Create and Deploy a Streamlit App
 
-Welcome to this tutorial on how to create and deploy a Streamlit app! This tutorial will guide you through the process of setting up a simple Streamlit app and deploying it on Streamlit Community Cloud.
+## Step 1: Install Streamlit
 
-## Features
+Open your terminal or command prompt and run the following command to install Streamlit:
 
-- Display titles, headers, subheaders, and text
-- Render markdown
-- Interactive widgets like buttons, sliders, and input boxes
+```bash
+pip install streamlit
+```
 
-## Getting Started
+## Step 2: Create Your Streamlit App
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+Create a new Python file named `app.py` and write your Streamlit code. Here is a simple example:
 
-### Prerequisites
+```python
+import streamlit as st
 
-Make sure you have Python installed on your local machine. You can download it from [python.org](https://www.python.org/).
+# Set the title
+st.title('Hello Streamlit!')
 
-### Installing
+# Add a header
+st.header('Welcome to my first Streamlit app')
 
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/Sohaib-2/Streamlit-Tutorial.git
-    cd YOUR_REPOSITORY_NAME
-    ```
+# Add a subheader
+st.subheader('This is a subheader')
 
-2. **Install the required packages**:
-    ```bash
-    pip install -r requirements.txt
-    ```
+# Add text
+st.text('This is a simple text.')
 
-3. **Run the Streamlit app**:
-    ```bash
-    streamlit run app.py
-    ```
+# Add a markdown
+st.markdown('### This is a markdown')
 
-## Deployment
+# Add a button
+if st.button('Click me'):
+    st.write('Button clicked!')
 
-To deploy this app to Streamlit Community Cloud:
+# Add a slider
+value = st.slider('Select a value', 0, 100, 50)
+st.write(f'Slider value: {value}')
 
-1. **Push your code to GitHub** if you haven't already:
-    ```bash
-    git add .
-    git commit -m "Initial commit"
-    git push origin main
-    ```
+# Add an input box
+name = st.text_input('Enter your name')
+if name:
+    st.write(f'Hello, {name}!')
+```
 
-2. **Sign up for Streamlit Community Cloud**: Go to [Streamlit Community Cloud](https://streamlit.io/cloud) and sign up or log in.
+## Step 3: Create a `requirements.txt` File
 
-3. **Deploy your app**:
+If your app requires additional Python packages, list them in a `requirements.txt` file in the same directory as your `app.py` file. For example:
+
+```
+streamlit
+pandas
+numpy
+```
+or you can auto create it using this command
+
+``
+pip freeze > requirements.txt
+``
+
+## Step 4: Initialize a Git Repository
+
+Open Visual Studio Code (VS Code) and navigate to your project directory. Open the terminal in VS Code (`Ctrl+``) and run the following commands to initialize a Git repository:
+
+```bash
+git init
+```
+
+## Step 5: Commit Your Code to Git
+
+Run the following commands to add your files to the Git repository and commit them:
+
+```bash
+git add .
+git commit -m "Initial commit"
+```
+
+## Step 6: Push Your Code to GitHub
+
+1. **Create a new repository on GitHub**: Go to GitHub and create a new repository. Do not initialize it with a README, `.gitignore`, or license.
+   
+2. **Add the GitHub repository as a remote**: In the VS Code terminal, run the following commands, replacing `YOUR_GITHUB_USERNAME` and `YOUR_REPOSITORY_NAME` with your GitHub username and repository name:
+
+```bash
+git remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git
+git branch -M main
+git push -u origin main
+```
+
+## Step 7: Deploy Your App on Streamlit Community Cloud
+
+1. **Sign up for Streamlit Community Cloud**: Go to [Streamlit Community Cloud](https://streamlit.io/cloud) and sign up or log in.
+   
+2. **Deploy your app**:
    - Click on the “New app” button.
-   - Connect your GitHub account.
+   - Connect your GitHub account if you haven't already.
    - Select the repository and branch where your `app.py` file is located.
    - Specify the path to your `app.py` file.
    - Click “Deploy”.
 
-## Tutorial Contents
+## Step 8: Configure Additional Settings (Optional)
 
-1. **Creating Your Streamlit App**:
-    - Write your Streamlit code in `app.py`.
-    - Example code to display various Streamlit features.
+### Adding Dependencies
 
-2. **Creating a `requirements.txt` File**:
-    - List all necessary Python packages.
-    - Example `requirements.txt` file.
+If your app requires additional Python packages, you can list them in your `requirements.txt` file. Streamlit Community Cloud will automatically install these dependencies when deploying your app.
 
-3. **Initializing a Git Repository**:
-    - Commands to initialize a Git repository and commit your code.
+### Setting Environment Variables
 
-4. **Pushing Your Code to GitHub**:
-    - Steps to create a GitHub repository and push your local repository to GitHub.
+If your app requires environment variables, you can set them in the Streamlit app settings. Go to the settings of your deployed app, find the “Secrets” section, and add your environment variables there.
 
-5. **Deploying Your App on Streamlit Community Cloud**:
-    - Steps to deploy your Streamlit app on Streamlit Community Cloud.
+## Step 9: Update and Manage Your App
 
-6. **Updating and Managing Your App**:
-    - Workflow for making updates to your app and pushing them to GitHub.
+To update your app, make changes to your code, commit them, and push them to GitHub. Streamlit Community Cloud will automatically redeploy your app with the latest changes.
 
-## Built With
+### Example Workflow for Updates
 
-- [Streamlit](https://streamlit.io/) - The framework used
+```bash
+# Make your changes to the code
+
+# Add and commit your changes
+git add .
+git commit -m "Update app"
+
+# Push the changes to GitHub
+git push origin main
+```
+
+## Step 10: Share Your App
+
+Once your app is deployed, you’ll get a unique URL that you can share with others. They can access your app using this URL.
+
+---
+
+Following these detailed steps, you should be able to create, push to GitHub, and deploy your Streamlit app successfully.
