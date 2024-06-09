@@ -26,4 +26,4 @@ st.write(f'Slider value: {value}')
 # Add an input box
 name = st.text_input('Enter your name')
 if name:
-    st.write(f'Hello, {name}!')
+    st.write(f'Hello, {name}! Hope you are happty to set up your first app.')
